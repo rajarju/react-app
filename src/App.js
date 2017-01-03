@@ -5,8 +5,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      titleTxt : 'Hello World',
-      subHead : 'This is a Sub Head'
+      titleTxt : 'Hello World'
     };
   }
 
@@ -19,13 +18,24 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <h1 className="title"> {this.state.titleTxt} </h1>
-        <b>{this.state.subHead}</b>
         <div>
-          <input type="text" onChange={this.update.bind(this)} />
+          <Widget update={this.update.bind(this)} />
+        </div>
+        <div>
+          <Widget update={this.update.bind(this)} />
+        </div>
+        <div>
+          <Widget update={this.update.bind(this)} />
+        </div>
+        <div>
+          <Widget update={this.update.bind(this)} />
         </div>
       </div>
     );
   }
 };
+
+
+const Widget = (props) => <input type="text" onChange={props.update } />
 
 export default App;
